@@ -1,103 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Google Translate Widget Demo</title>
-
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
-      padding: 32px;
+      padding: 32px 20px;
       font-family: Arial, sans-serif;
       line-height: 1.5;
-      color: #111;
-      background: #f7f7f7;
+      color: #202124;
+      background: #f5f7fa;
     }
 
     main {
-      max-width: 760px;
+      max-width: 800px;
       margin: 0 auto;
+      padding: 32px;
+      border: 1px solid #dfe3e8;
+      border-radius: 12px;
       background: #fff;
-      padding: 28px;
-      border-radius: 10px;
-      border: 1px solid #ddd;
     }
 
     h1 {
-      margin-top: 0;
-    }
-
-    .widget-section {
-      margin-top: 28px;
-      padding: 18px;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      background: #fafafa;
-    }
-
-    .widget-section h2 {
-      margin-top: 0;
-      font-size: 20px;
+      margin: 0 0 12px;
     }
 
     .sample-text {
-      margin-top: 28px;
+      margin: 24px 0;
       padding: 18px;
       border-radius: 8px;
       background: #eef4ff;
     }
 
-    .goog-logo-link,
-    .goog-logo-link:link,
-    .goog-logo-link:visited,
-    .goog-logo-link:hover,
-    .goog-logo-link:active {
-      display: none !important;
+    .widget-section {
+      margin-top: 24px;
+      padding: 20px;
+      border: 1px solid #dfe3e8;
+      border-radius: 8px;
+      background: #fafbfc;
     }
 
-    .goog-te-gadget {
-      color: transparent !important;
-      font-size: 0 !important;
+    .widget-section h2 {
+      margin: 0 0 12px;
+      font-size: 1.25rem;
     }
 
-    .goog-te-gadget span {
-      display: none !important;
+    .widget-frame {
+      display: block;
+      width: 100%;
+      height: 70px;
+      border: 0;
+      background: transparent;
     }
 
-    .goog-te-gadget select {
-      color: #111 !important;
-      font-size: 14px !important;
-    }
+    @media (max-width: 600px) {
+      body {
+        padding: 16px;
+      }
 
-    .VIpgJd-ZVi9od-l4eHX-hSRGPd,
-    .VIpgJd-ZVi9od-l4eHX-hSRGPd:link,
-    .VIpgJd-ZVi9od-l4eHX-hSRGPd:visited,
-    .VIpgJd-ZVi9od-l4eHX-hSRGPd:hover,
-    .VIpgJd-ZVi9od-l4eHX-hSRGPd:active {
-      display: none !important;
-    }
-
-    .goog-te-banner-frame,
-    .goog-te-banner-frame.skiptranslate,
-    iframe.goog-te-banner-frame {
-      display: none !important;
-    }
-
-    body,
-    html.translated-ltr body,
-    html.translated-rtl body {
-      top: 0 !important;
+      main {
+        padding: 22px;
+      }
     }
   </style>
 </head>
 <body>
   <main>
     <h1>Google Translate Widget Demo</h1>
-
-    <p>
-      Allowed languages: English, Polish, Spanish, Ukrainian, Arabic.
-    </p>
+    <p>Allowed languages: English, Polish, Spanish, Ukrainian, Arabic.</p>
 
     <div class="sample-text">
       <strong>Sample text:</strong>
@@ -106,52 +82,18 @@
 
     <section class="widget-section">
       <h2>Vertical/default widget</h2>
-      <div id="google_translate_vertical"></div>
+      <iframe class="widget-frame" src="vertical.html" title="Vertical Google Translate widget"></iframe>
     </section>
 
     <section class="widget-section">
       <h2>Horizontal widget</h2>
-      <div id="google_translate_horizontal"></div>
+      <iframe class="widget-frame" src="horizontal.html" title="Horizontal Google Translate widget"></iframe>
     </section>
 
     <section class="widget-section">
       <h2>Simple widget</h2>
-      <div id="google_translate_simple"></div>
+      <iframe class="widget-frame" src="simple.html" title="Simple Google Translate widget"></iframe>
     </section>
   </main>
-
-  <script>
-    function googleTranslateElementInit() {
-      const includedLanguages = 'en,pl,es,uk,ar';
-
-      new google.translate.TranslateElement(
-        {
-          pageLanguage: 'en',
-          includedLanguages: includedLanguages
-        },
-        'google_translate_vertical'
-      );
-
-      new google.translate.TranslateElement(
-        {
-          pageLanguage: 'en',
-          includedLanguages: includedLanguages,
-          layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
-        },
-        'google_translate_horizontal'
-      );
-
-      new google.translate.TranslateElement(
-        {
-          pageLanguage: 'en',
-          includedLanguages: includedLanguages,
-          layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-        },
-        'google_translate_simple'
-      );
-    }
-  </script>
-
-  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
