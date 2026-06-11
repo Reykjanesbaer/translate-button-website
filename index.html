@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Static demos of three Google Translate widget layouts and a custom Payload-style translate button.">
+  <meta name="description" content="Static demos of three Google Translate widget layouts and three custom Payload-style IS button variants.">
   <title>Google Translate Widget Demos</title>
   <style>
     :root {
@@ -115,8 +115,8 @@
     <header>
       <h1>Google Translate Widget Demos</h1>
       <p>
-        Compare three standard Google Translate layouts with a custom Payload-style
-        <span class="notranslate" translate="no">IS</span> control. Each demo runs in its own page to avoid script conflicts.
+        Compare three standard Google Translate layouts with three custom Payload-style
+        <span class="notranslate" translate="no">IS</span> button variants. Each demo runs in its own page to avoid script conflicts.
       </p>
     </header>
 
@@ -139,10 +139,22 @@
         <iframe class="demo-frame" src="simple.html" title="Simple Google Translate widget demo"></iframe>
       </section>
 
-      <section class="demo-card" aria-labelledby="payload-heading">
-        <h2 id="payload-heading">Payload-style custom <span class="notranslate" translate="no">IS</span> button</h2>
-        <p>A clean custom control backed by Google's simple selector.</p>
-        <iframe class="demo-frame" src="payload-style.html" title="Payload-style custom IS translate button demo"></iframe>
+      <section class="demo-card" aria-labelledby="payload-simple-heading">
+        <h2 id="payload-simple-heading">Payload-style <span class="notranslate" translate="no">IS</span> button — simple layout</h2>
+        <p>Custom control backed by Google's SIMPLE selector.</p>
+        <iframe class="demo-frame" src="payload-style.html" title="Payload-style IS button using the simple Google Translate layout"></iframe>
+      </section>
+
+      <section class="demo-card" aria-labelledby="payload-default-heading">
+        <h2 id="payload-default-heading">Payload-style <span class="notranslate" translate="no">IS</span> button — default selector</h2>
+        <p>Custom control backed by Google's standard/default selector.</p>
+        <iframe class="demo-frame" src="payload-style-default.html" title="Payload-style IS button using the default Google Translate selector"></iframe>
+      </section>
+
+      <section class="demo-card" aria-labelledby="payload-horizontal-heading">
+        <h2 id="payload-horizontal-heading">Payload-style <span class="notranslate" translate="no">IS</span> button — horizontal layout</h2>
+        <p>Custom control backed by Google's horizontal inline layout.</p>
+        <iframe class="demo-frame" src="payload-style-horizontal.html" title="Payload-style IS button using the horizontal Google Translate layout"></iframe>
       </section>
     </div>
 
