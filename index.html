@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Demonstration of three Google Translate website widget layouts.">
-  <title>Google Translate Widget Layouts</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Google Translate Widget Demo</title>
+
   <style>
     * {
       box-sizing: border-box;
@@ -12,113 +12,136 @@
 
     body {
       margin: 0;
-      color: #1f2937;
-      background: #f3f4f6;
+      padding: 32px;
       font-family: Arial, sans-serif;
       line-height: 1.5;
+      color: #111;
+      background: #f7f7f7;
     }
 
     main {
-      width: min(900px, calc(100% - 32px));
-      margin: 48px auto;
-    }
-
-    header {
-      margin-bottom: 32px;
-      text-align: center;
+      max-width: 760px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 28px;
+      border: 1px solid #ddd;
+      border-radius: 14px;
     }
 
     h1 {
-      margin: 0 0 8px;
-      color: #111827;
-      font-size: clamp(2rem, 6vw, 3rem);
-      line-height: 1.15;
+      margin-top: 0;
     }
 
-    header p {
-      margin: 0 auto;
-      max-width: 650px;
-      color: #4b5563;
-    }
-
-    .widget-grid {
-      display: grid;
-      gap: 20px;
-    }
-
-    .widget-card {
-      padding: 24px;
-      border: 1px solid #d1d5db;
-      border-radius: 12px;
-      background: #ffffff;
-      box-shadow: 0 4px 14px rgba(17, 24, 39, 0.06);
-    }
-
-    .widget-card h2 {
-      margin: 0 0 6px;
-      color: #111827;
-      font-size: 1.25rem;
-    }
-
-    .widget-card p {
-      margin: 0 0 16px;
-      color: #6b7280;
-    }
-
-    .widget-frame {
-      display: block;
-      width: 100%;
-      height: 64px;
-      border: 0;
-      background: transparent;
-    }
-
-    footer {
+    .translate-box {
       margin-top: 24px;
-      color: #6b7280;
-      font-size: 0.9rem;
-      text-align: center;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      background: #fafafa;
     }
 
-    @media (max-width: 600px) {
-      main {
-        margin: 28px auto;
-      }
+    .translate-box h2 {
+      margin-top: 0;
+      font-size: 20px;
+    }
 
-      .widget-card {
-        padding: 20px;
-      }
+    #google_translate_element {
+      margin-top: 12px;
+    }
+
+    .sample-text {
+      margin-top: 24px;
+      padding: 18px;
+      border-radius: 10px;
+      background: #eef4ff;
+      border: 1px solid #cdddf8;
+    }
+
+    .goog-logo-link,
+    .goog-logo-link:link,
+    .goog-logo-link:visited,
+    .goog-logo-link:hover,
+    .goog-logo-link:active {
+      display: none !important;
+    }
+
+    .goog-te-gadget {
+      color: transparent !important;
+    }
+
+    .goog-te-gadget span {
+      display: none !important;
+    }
+
+    .goog-te-gadget select,
+    .goog-te-combo {
+      display: inline-block !important;
+      visibility: visible !important;
+      opacity: 1 !important;
+      min-width: 180px;
+      min-height: 34px;
+      margin: 0 !important;
+      padding: 6px 8px;
+      border: 1px solid #bbb;
+      border-radius: 6px;
+      background: #fff;
+      color: #111 !important;
+      font-size: 14px !important;
+      line-height: normal !important;
+      cursor: pointer;
+    }
+
+    .VIpgJd-ZVi9od-l4eHX-hSRGPd,
+    .VIpgJd-ZVi9od-l4eHX-hSRGPd:link,
+    .VIpgJd-ZVi9od-l4eHX-hSRGPd:visited,
+    .VIpgJd-ZVi9od-l4eHX-hSRGPd:hover,
+    .VIpgJd-ZVi9od-l4eHX-hSRGPd:active {
+      display: none !important;
+    }
+
+    .goog-te-banner-frame,
+    .goog-te-banner-frame.skiptranslate,
+    iframe.goog-te-banner-frame {
+      display: none !important;
+    }
+
+    body,
+    html.translated-ltr body,
+    html.translated-rtl body {
+      top: 0 !important;
     }
   </style>
 </head>
 <body>
   <main>
-    <header>
-      <h1>Google Translate Widgets</h1>
-      <p>Compare the vertical, horizontal, and simple layouts. Each selector is isolated in its own page so the Google Translate script initializes independently.</p>
-    </header>
+    <h1>Google Translate Widget Demo</h1>
 
-    <div class="widget-grid">
-      <section class="widget-card" aria-labelledby="vertical-heading">
-        <h2 id="vertical-heading">Vertical/default</h2>
-        <p>The standard Google Translate widget layout.</p>
-        <iframe class="widget-frame" src="vertical.html" title="Vertical Google Translate language selector"></iframe>
-      </section>
+    <p>
+      Allowed languages: English, Polish, Spanish, Ukrainian, Arabic.
+    </p>
 
-      <section class="widget-card" aria-labelledby="horizontal-heading">
-        <h2 id="horizontal-heading">Horizontal</h2>
-        <p>The inline horizontal Google Translate widget layout.</p>
-        <iframe class="widget-frame" src="horizontal.html" title="Horizontal Google Translate language selector"></iframe>
-      </section>
+    <section class="translate-box">
+      <h2>Vertical/default widget</h2>
+      <div id="google_translate_element"></div>
+    </section>
 
-      <section class="widget-card" aria-labelledby="simple-heading">
-        <h2 id="simple-heading">Simple</h2>
-        <p>The compact simple Google Translate widget layout.</p>
-        <iframe class="widget-frame" src="simple.html" title="Simple Google Translate language selector"></iframe>
-      </section>
+    <div class="sample-text">
+      This sample paragraph can be used to test the translation widget.
     </div>
-
-    <footer>Available languages: English, Polish, Spanish, Ukrainian, and Arabic.</footer>
   </main>
+
+  <script>
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement(
+        {
+          pageLanguage: 'en',
+          includedLanguages: 'en,pl,es,uk,ar'
+        },
+        'google_translate_element'
+      );
+    }
+  </script>
+
+  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
