@@ -1,16 +1,25 @@
-# Google Translate Widget Layout Demo
+# Google Translate Widget Demos
 
-This repository is a static GitHub Pages demo showing three Google Translate website widget layouts together on one page:
+This repository is a static GitHub Pages demo of four isolated Google Translate controls:
 
-- Vertical/default
-- Horizontal
-- Simple
+- Vertical/default Google Translate widget
+- Horizontal Google Translate widget
+- Simple Google Translate widget
+- Payload-style custom `IS` translate button
 
-All three widgets are embedded directly in `index.html` and initialized by one callback. The project uses only HTML, CSS, and vanilla JavaScript—there is no framework, package manager, dependency installation, or build step.
+The landing page embeds each demo in a separate iframe. Keeping each Google Translate instance in its own standalone document avoids conflicts that can occur when several widgets initialize in one page.
+
+## Pages
+
+- `index.html` — GitHub Pages landing page containing all four demo cards
+- `vertical.html` — vertical/default widget
+- `horizontal.html` — horizontal inline widget
+- `simple.html` — simple inline widget
+- `payload-style.html` — custom `IS` button backed by the simple Google Translate widget
 
 ## Languages
 
-The page uses English as its source language and limits each widget's language selector to:
+Every widget uses English as its source language and limits its selector to:
 
 - English (`en`)
 - Polish (`pl`)
@@ -18,18 +27,16 @@ The page uses English as its source language and limits each widget's language s
 - Ukrainian (`uk`)
 - Arabic (`ar`)
 
-Each widget uses the same language configuration:
+The shared configuration is:
 
 ```javascript
 pageLanguage: 'en',
 includedLanguages: 'en,pl,es,uk,ar'
 ```
 
-The three widgets use Google's `VERTICAL`, `HORIZONTAL`, and `SIMPLE` inline layout constants and render in separate containers on the same page.
-
 ## Run locally
 
-No installation or build is required. You can open `index.html` directly, or serve the repository root with a static file server:
+The demo uses only static HTML, CSS, and vanilla JavaScript. It has no package manager, framework, dependencies, or build step. Serve the repository root with a static file server:
 
 ```sh
 python3 -m http.server 8000
@@ -37,12 +44,12 @@ python3 -m http.server 8000
 
 Then open `http://localhost:8000/`.
 
-Internet access is required for the widgets because the Google Translate element script is loaded from `translate.google.com`. Google may also inject additional iframes, controls, or translation banners when the widget is used.
+Internet access is required because Google's external Translate script controls the final rendered widget appearance and behavior.
 
-## Publish with GitHub Pages
+## GitHub Pages
 
-1. Open the repository on GitHub and select **Settings**.
-2. Select **Pages** under **Code and automation**.
-3. Under **Build and deployment**, choose **Deploy from a branch**.
-4. Select the desired branch and the **`/ (root)`** folder.
-5. Save the settings and open the published URL after deployment completes.
+Publish the repository root from the desired branch using **Settings → Pages → Deploy from a branch**. No build configuration is needed.
+
+## Payload-style prototype
+
+`payload-style.html` is a visual and technical prototype for a custom `IS` language button. It keeps a Google Translate simple-layout widget underneath the custom control, but it is not the final Payload CMS implementation.

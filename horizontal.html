@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Horizontal Google Translate Widget</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body,
+    html.translated-ltr body,
+    html.translated-rtl body {
+      top: 0 !important;
+    }
+
+    body {
+      margin: 0;
+      padding: 20px;
+      color: #17202a;
+      background: #f8fafc;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    #google_translate_element {
+      min-height: 44px;
+    }
+
+    .sampleText {
+      margin: 12px 0 0;
+      color: #475467;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .goog-te-banner-frame,
+    .goog-te-banner-frame.skiptranslate,
+    iframe.goog-te-banner-frame,
+    iframe.VIpgJd-ZVi9od-ORHb-OEVmcd {
+      display: none !important;
+    }
+  </style>
+</head>
+<body>
+  <div id="google_translate_element"></div>
+  <p class="sampleText">Welcome to Reykjanesbær. Choose a language to translate this sample text.</p>
+
+  <script>
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'en,pl,es,uk,ar',
+        layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
+      }, 'google_translate_element');
+    }
+  </script>
+  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>
