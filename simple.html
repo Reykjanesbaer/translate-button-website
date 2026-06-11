@@ -41,6 +41,16 @@
     iframe.VIpgJd-ZVi9od-ORHb-OEVmcd {
       display: none !important;
     }
+
+    /* Hide Google branding (logo image, tooltip) in the SIMPLE layout.
+       The selector label here is rendered in spans, so spans stay
+       visible to keep the language control usable. */
+    .goog-logo-link,
+    .goog-te-gadget img,
+    .goog-te-balloon-frame,
+    #goog-gt-tt {
+      display: none !important;
+    }
   </style>
 </head>
 <body>

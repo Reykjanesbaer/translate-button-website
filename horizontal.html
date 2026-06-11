@@ -41,6 +41,28 @@
     iframe.VIpgJd-ZVi9od-ORHb-OEVmcd {
       display: none !important;
     }
+
+    /* Hide Google branding ("Powered by Google", logo) but keep the
+       language dropdown (.goog-te-combo) visible and usable. */
+    .goog-logo-link,
+    .goog-te-gadget span,
+    .goog-te-gadget img,
+    .goog-te-balloon-frame,
+    #goog-gt-tt {
+      display: none !important;
+    }
+
+    .goog-te-gadget {
+      font-size: 0 !important;
+      color: transparent !important;
+    }
+
+    .goog-te-gadget select,
+    .goog-te-combo {
+      display: inline-block !important;
+      font-size: 16px !important;
+      color: #111 !important;
+    }
   </style>
 </head>
 <body>
