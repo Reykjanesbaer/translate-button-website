@@ -1,20 +1,17 @@
-# Google Translate Widget Demo
+# Google Translate Widget Layout Demo
 
-A small, static GitHub Pages demo of the Google Translate website widget. Each layout is loaded in its own HTML document and displayed on the main page in an iframe, preventing multiple widget initializations from interfering with one another.
+This repository is a static GitHub Pages demo for three Google Translate website widget layouts. The main `index.html` page presents each widget in an iframe, while each widget initializes in a separate standalone HTML document to prevent the Google Translate script instances from conflicting.
 
-## Widget types
+## Pages
 
-The demo includes these three Google Translate widget layouts:
+- `index.html` — main demo page containing all three widget iframes
+- `vertical.html` — vertical/default widget
+- `horizontal.html` — horizontal inline widget
+- `simple.html` — simple inline widget
 
-- **Vertical/default** (`vertical.html`)
-- **Horizontal** (`horizontal.html`)
-- **Simple** (`simple.html`)
+## Languages
 
-`index.html` displays all three standalone widget pages.
-
-## Allowed languages
-
-Translation is limited to:
+Every widget uses English as its source page language and limits the selector to:
 
 - English (`en`)
 - Polish (`pl`)
@@ -22,16 +19,31 @@ Translation is limited to:
 - Ukrainian (`uk`)
 - Arabic (`ar`)
 
-Every widget uses English as the page language and `en,pl,es,uk,ar` as its included languages.
+The shared widget configuration is:
 
-## GitHub Pages setup
+```javascript
+pageLanguage: 'en',
+includedLanguages: 'en,pl,es,uk,ar'
+```
 
-1. Push the repository to GitHub.
-2. Open the repository's **Settings**.
-3. Select **Pages** under **Code and automation**.
-4. Under **Build and deployment**, set **Source** to **Deploy from a branch**.
-5. Select the branch containing these files and choose the **`/ (root)`** folder.
-6. Click **Save** and wait for GitHub Pages to publish the site.
-7. Open the URL shown in the GitHub Pages settings.
+## Run locally
 
-No installation or build step is needed. The site uses only HTML, CSS, and JavaScript, with no npm packages, frameworks, build tools, or local dependencies.
+No installation or build is required. Serve the repository root with any static file server, for example:
+
+```sh
+python3 -m http.server 8000
+```
+
+Then open `http://localhost:8000/`.
+
+Internet access is required for the selectors because the Google Translate element script is loaded from `translate.google.com`.
+
+## Publish with GitHub Pages
+
+1. Open the repository on GitHub and select **Settings**.
+2. Select **Pages** under **Code and automation**.
+3. Under **Build and deployment**, choose **Deploy from a branch**.
+4. Select the desired branch and the **`/ (root)`** folder.
+5. Save the settings and open the published URL after deployment completes.
+
+The project intentionally uses only HTML, CSS, and JavaScript. It has no framework, package manager, dependencies, or build tools.
