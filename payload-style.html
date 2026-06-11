@@ -77,32 +77,40 @@
       outline-offset: 3px;
     }
 
-    /* The Google widget sits invisibly on top of the custom button so a
-       click on the visible IS control opens Google's injected SIMPLE
-       selector directly. Do not set pointer-events: none here. */
+    /* The Google SIMPLE widget stays in the DOM and functional, but is fully
+       hidden over the button (opacity 0, no pointer events) so the only thing
+       visible is the custom IS control. Clicks are forwarded to Google's
+       language menu via JavaScript, and the menu anchors at the button. */
     .controlTranslateWidget {
       position: absolute;
       inset: 0;
       overflow: hidden;
-      opacity: 0.01;
-      z-index: 3;
+      opacity: 0;
+      pointer-events: none;
     }
 
-    .controlTranslateWidget .goog-te-gadget,
-    .controlTranslateWidget .goog-te-gadget-simple {
-      width: 44px !important;
-      height: 44px !important;
-      margin: 0 !important;
-      padding: 0 !important;
-      border: none !important;
-      background: transparent !important;
-    }
-
-    /* Hide Google branding inside the overlay and any injected extras. */
+    /* Hide every Google-injected branding element (logo, "Powered by Google",
+       tooltip, banner) for both the classic and obfuscated gadget DOM. */
+    .goog-te-gadget,
+    .goog-te-gadget > span,
     .goog-logo-link,
+    .goog-te-gadget-icon,
     .goog-te-gadget img,
+    .goog-te-gadget-simple img,
     .goog-te-balloon-frame,
-    #goog-gt-tt {
+    #goog-gt-tt,
+    .VIpgJd-ZVi9od-l4eHX-hSRGPd {
+      color: transparent !important;
+      font-size: 0 !important;
+    }
+
+    .goog-logo-link,
+    .goog-te-gadget-icon,
+    .goog-te-gadget img,
+    .goog-te-gadget-simple img,
+    .goog-te-balloon-frame,
+    #goog-gt-tt,
+    .VIpgJd-ZVi9od-l4eHX-hSRGPd {
       display: none !important;
     }
 
@@ -139,6 +147,22 @@
         layout: google.translate.TranslateElement.InlineLayout.SIMPLE
       }, 'google_translate_element');
     }
+
+    // The Google widget is visually hidden, so forward clicks on the custom
+    // IS button to Google's language menu trigger. Google injects that element
+    // asynchronously, so resolve it at click time.
+    document.querySelector('.controlTranslateButton').addEventListener('click', function () {
+      var trigger = document.querySelector(
+        '#google_translate_element .goog-te-menu-value, ' +
+        '#google_translate_element a.goog-te-menu-value, ' +
+        '#google_translate_element .VIpgJd-ZVi9od-xl07Ob-lTBxed'
+      );
+
+      if (trigger) {
+        trigger.dispatchEvent(new MouseEvent('mousedown', { bubbles: true }));
+        trigger.click();
+      }
+    });
   </script>
   <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
