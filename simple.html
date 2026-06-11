@@ -35,21 +35,30 @@
       line-height: 1.5;
     }
 
+    /* Suppress the top translation banner so the page doesn't shift. */
     .goog-te-banner-frame,
     .goog-te-banner-frame.skiptranslate,
     iframe.goog-te-banner-frame,
-    iframe.VIpgJd-ZVi9od-ORHb-OEVmcd {
+    .VIpgJd-ZVi9od-ORHb-OEVmcd {
       display: none !important;
     }
 
-    /* Hide Google branding (logo image, tooltip) in the SIMPLE layout.
-       The selector label here is rendered in spans, so spans stay
-       visible to keep the language control usable. */
+    /* Hide Google branding (logo/icon, tooltip) in the SIMPLE layout while
+       keeping the "Select Language" label and its dropdown usable. */
     .goog-logo-link,
+    .goog-te-gadget-icon,
     .goog-te-gadget img,
+    .goog-te-gadget-simple img,
     .goog-te-balloon-frame,
-    #goog-gt-tt {
+    #goog-gt-tt,
+    .VIpgJd-ZVi9od-l4eHX-hSRGPd {
       display: none !important;
+    }
+
+    .goog-te-gadget-simple,
+    .goog-te-gadget-simple span {
+      color: #202124 !important;
+      font-size: 14px !important;
     }
   </style>
 </head>

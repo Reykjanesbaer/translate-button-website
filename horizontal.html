@@ -35,33 +35,35 @@
       line-height: 1.5;
     }
 
+    /* Suppress the top translation banner so the page doesn't shift. */
     .goog-te-banner-frame,
     .goog-te-banner-frame.skiptranslate,
     iframe.goog-te-banner-frame,
-    iframe.VIpgJd-ZVi9od-ORHb-OEVmcd {
+    .VIpgJd-ZVi9od-ORHb-OEVmcd {
       display: none !important;
     }
 
-    /* Hide Google branding ("Powered by Google", logo) but keep the
-       language dropdown (.goog-te-combo) visible and usable. */
+    /* Hide Google branding ("Powered by Google" + logo) while keeping the
+       language dropdown (.goog-te-combo) visible and usable. Targets both
+       the classic gadget DOM and Google's newer obfuscated class names. */
+    .goog-te-gadget {
+      color: transparent !important;
+      font-size: 0 !important;
+    }
+
+    .goog-te-gadget .goog-te-combo {
+      color: #202124 !important;
+      font-size: 16px !important;
+    }
+
+    .goog-te-gadget > span,
     .goog-logo-link,
-    .goog-te-gadget span,
+    .goog-te-gadget-icon,
     .goog-te-gadget img,
     .goog-te-balloon-frame,
-    #goog-gt-tt {
+    #goog-gt-tt,
+    .VIpgJd-ZVi9od-l4eHX-hSRGPd {
       display: none !important;
-    }
-
-    .goog-te-gadget {
-      font-size: 0 !important;
-      color: transparent !important;
-    }
-
-    .goog-te-gadget select,
-    .goog-te-combo {
-      display: inline-block !important;
-      font-size: 16px !important;
-      color: #111 !important;
     }
   </style>
 </head>
