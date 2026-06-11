@@ -3,15 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="A static demo of three Google Translate widget layouts.">
-  <title>Google Translate Widget Layout Demo</title>
-
+  <meta name="description" content="Static demos of three Google Translate widget layouts and a custom Payload-style translate button.">
+  <title>Google Translate Widget Demos</title>
   <style>
     :root {
       color-scheme: light;
       font-family: Arial, Helvetica, sans-serif;
       color: #1f2937;
-      background: #f3f6fb;
+      background: #eef2f7;
     }
 
     * {
@@ -21,7 +20,7 @@
     body {
       min-height: 100vh;
       margin: 0;
-      line-height: 1.6;
+      line-height: 1.5;
     }
 
     main {
@@ -30,9 +29,10 @@
       padding: 56px 0;
     }
 
-    .page-header {
+    header {
       max-width: 760px;
-      margin-bottom: 32px;
+      margin: 0 auto 32px;
+      text-align: center;
     }
 
     h1,
@@ -43,181 +43,112 @@
 
     h1 {
       margin: 0 0 12px;
-      font-size: clamp(2rem, 5vw, 3rem);
+      font-size: clamp(2rem, 6vw, 3.25rem);
     }
 
-    .intro {
+    header p {
       margin: 0;
       color: #4b5563;
       font-size: 1.05rem;
     }
 
-    .widget-grid {
+    .demo-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 24px;
     }
 
-    .widget-card {
+    .demo-card {
       min-width: 0;
       padding: 24px;
-      border: 1px solid #dbe3ef;
-      border-radius: 14px;
+      border: 1px solid #d7dee9;
+      border-radius: 16px;
       background: #ffffff;
-      box-shadow: 0 10px 28px rgba(31, 41, 55, 0.08);
+      box-shadow: 0 12px 32px rgba(17, 24, 39, 0.07);
     }
 
-    .widget-card h2 {
+    .demo-card h2 {
       margin: 0 0 8px;
-      font-size: 1.25rem;
+      font-size: 1.3rem;
     }
 
-    .widget-card p {
-      min-height: 3.2em;
-      margin: 0 0 20px;
-      color: #6b7280;
+    .demo-card > p {
+      min-height: 3em;
+      margin: 0 0 18px;
+      color: #667085;
     }
 
-    .widget-container {
-      min-height: 48px;
-      padding: 16px;
-      overflow-x: auto;
-      border: 1px dashed #aab8cc;
-      border-radius: 10px;
+    .demo-frame {
+      display: block;
+      width: 100%;
+      height: 180px;
+      border: 1px solid #dbe3ee;
+      border-radius: 12px;
       background: #f8fafc;
     }
 
-    .sample-text,
-    .note {
-      margin-top: 24px;
-      padding: 24px;
-      border-radius: 14px;
+    footer {
+      margin-top: 28px;
+      color: #667085;
+      font-size: 0.95rem;
+      text-align: center;
     }
 
-    .sample-text {
-      border: 1px solid #bfdbfe;
-      background: #eff6ff;
-    }
-
-    .sample-text h2 {
-      margin: 0 0 8px;
-      font-size: 1.25rem;
-    }
-
-    .sample-text p {
-      margin: 0;
-    }
-
-    .note {
-      border-left: 4px solid #f59e0b;
-      background: #fffbeb;
-      color: #78350f;
-    }
-
-    .note strong {
-      color: #92400e;
-    }
-
-    @media (max-width: 860px) {
-      .widget-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .widget-card p {
-        min-height: auto;
-      }
-    }
-
-    @media (max-width: 520px) {
+    @media (max-width: 760px) {
       main {
         width: min(100% - 24px, 1120px);
         padding: 32px 0;
       }
 
-      .widget-card,
-      .sample-text,
-      .note {
-        padding: 20px;
+      .demo-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .demo-card > p {
+        min-height: auto;
       }
     }
   </style>
 </head>
 <body>
   <main>
-    <header class="page-header">
-      <h1>Google Translate Widget Layouts</h1>
-      <p class="intro">
-        Compare the vertical, horizontal, and simple Google Translate elements on one page.
-        Each widget offers English, Polish, Spanish, Ukrainian, and Arabic.
+    <header>
+      <h1>Google Translate Widget Demos</h1>
+      <p>
+        Compare three standard Google Translate layouts with a custom Payload-style
+        <span class="notranslate" translate="no">IS</span> control. Each demo runs in its own page to avoid script conflicts.
       </p>
     </header>
 
-    <div class="widget-grid">
-      <section class="widget-card" aria-labelledby="vertical-heading">
+    <div class="demo-grid">
+      <section class="demo-card" aria-labelledby="vertical-heading">
         <h2 id="vertical-heading">Vertical/default widget</h2>
-        <p>The standard vertical presentation of the website translator.</p>
-        <div id="google_translate_vertical" class="widget-container"></div>
+        <p>The standard Google Translate website selector.</p>
+        <iframe class="demo-frame" src="vertical.html" title="Vertical Google Translate widget demo"></iframe>
       </section>
 
-      <section class="widget-card" aria-labelledby="horizontal-heading">
+      <section class="demo-card" aria-labelledby="horizontal-heading">
         <h2 id="horizontal-heading">Horizontal widget</h2>
-        <p>A horizontal presentation suited to wider page areas.</p>
-        <div id="google_translate_horizontal" class="widget-container"></div>
+        <p>The horizontal inline layout for wider interface areas.</p>
+        <iframe class="demo-frame" src="horizontal.html" title="Horizontal Google Translate widget demo"></iframe>
       </section>
 
-      <section class="widget-card" aria-labelledby="simple-heading">
+      <section class="demo-card" aria-labelledby="simple-heading">
         <h2 id="simple-heading">Simple widget</h2>
-        <p>A compact presentation for smaller interface areas.</p>
-        <div id="google_translate_simple" class="widget-container"></div>
+        <p>The compact standard layout supplied by Google Translate.</p>
+        <iframe class="demo-frame" src="simple.html" title="Simple Google Translate widget demo"></iframe>
+      </section>
+
+      <section class="demo-card" aria-labelledby="payload-heading">
+        <h2 id="payload-heading">Payload-style custom <span class="notranslate" translate="no">IS</span> button</h2>
+        <p>A clean custom control backed by Google's simple selector.</p>
+        <iframe class="demo-frame" src="payload-style.html" title="Payload-style custom IS translate button demo"></iframe>
       </section>
     </div>
 
-    <section class="sample-text" aria-labelledby="sample-heading">
-      <h2 id="sample-heading">Sample text to translate</h2>
-      <p>
-        Welcome to the Google Translate widget demo. Choose a language above to test how
-        this sentence and the rest of the page are translated.
-      </p>
-    </section>
-
-    <aside class="note">
-      <strong>Note:</strong> This demo depends on Google’s external widget script. Google may
-      inject additional iframes, controls, or translation banners when a language is selected.
-    </aside>
+    <footer>
+      Sample text is included inside every demo. Available languages: English, Polish, Spanish, Ukrainian, and Arabic.
+    </footer>
   </main>
-
-  <script>
-    function googleTranslateElementInit() {
-      const sharedOptions = {
-        pageLanguage: 'en',
-        includedLanguages: 'en,pl,es,uk,ar'
-      };
-
-      new google.translate.TranslateElement(
-        {
-          ...sharedOptions,
-          layout: google.translate.TranslateElement.InlineLayout.VERTICAL
-        },
-        'google_translate_vertical'
-      );
-
-      new google.translate.TranslateElement(
-        {
-          ...sharedOptions,
-          layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
-        },
-        'google_translate_horizontal'
-      );
-
-      new google.translate.TranslateElement(
-        {
-          ...sharedOptions,
-          layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-        },
-        'google_translate_simple'
-      );
-    }
-  </script>
-  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
