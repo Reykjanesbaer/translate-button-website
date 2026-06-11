@@ -1,77 +1,92 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Google Translate Widget Demo</title>
+
   <style>
     body {
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 2rem 1rem;
-      color: #202124;
+      margin: 0;
+      padding: 32px;
       font-family: Arial, sans-serif;
       line-height: 1.5;
-      background: #f8f9fa;
+      color: #111;
+      background: #f7f7f7;
     }
 
     main {
-      padding: 1.5rem;
+      max-width: 760px;
+      margin: 0 auto;
       background: #fff;
-      border: 1px solid #dadce0;
-      border-radius: 8px;
+      padding: 28px;
+      border-radius: 10px;
+      border: 1px solid #ddd;
     }
 
     h1 {
       margin-top: 0;
     }
 
-    section {
-      margin-top: 1.5rem;
-      padding-top: 1rem;
-      border-top: 1px solid #dadce0;
+    .widget-section {
+      margin-top: 28px;
+      padding: 18px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      background: #fafafa;
     }
 
-    h2 {
-      margin: 0 0 0.75rem;
-      font-size: 1.1rem;
+    .widget-section h2 {
+      margin-top: 0;
+      font-size: 20px;
     }
 
-    .sample {
-      padding: 0.75rem;
-      background: #f1f3f4;
-      border-radius: 4px;
+    .sample-text {
+      margin-top: 28px;
+      padding: 18px;
+      border-radius: 8px;
+      background: #eef4ff;
     }
 
-    /* Keep the language controls while hiding Google Translate branding. */
+    .goog-logo-link,
+    .goog-logo-link:link,
+    .goog-logo-link:visited,
+    .goog-logo-link:hover,
+    .goog-logo-link:active {
+      display: none !important;
+    }
+
     .goog-te-gadget {
       color: transparent !important;
       font-size: 0 !important;
     }
 
-    .goog-te-gadget .goog-te-combo,
-    .goog-te-gadget-simple,
-    .goog-te-gadget-simple span {
-      color: #202124 !important;
-      font-size: 1rem !important;
-    }
-
-    .goog-te-gadget > span,
-    .goog-logo-link,
-    .goog-te-gadget-icon,
-    .goog-te-gadget-simple img,
-    .VIpgJd-ZVi9od-l4eHX-hSRGPd {
+    .goog-te-gadget span {
       display: none !important;
     }
 
-    /* Prevent the translation banner from covering or shifting the page. */
+    .goog-te-gadget select {
+      color: #111 !important;
+      font-size: 14px !important;
+    }
+
+    .VIpgJd-ZVi9od-l4eHX-hSRGPd,
+    .VIpgJd-ZVi9od-l4eHX-hSRGPd:link,
+    .VIpgJd-ZVi9od-l4eHX-hSRGPd:visited,
+    .VIpgJd-ZVi9od-l4eHX-hSRGPd:hover,
+    .VIpgJd-ZVi9od-l4eHX-hSRGPd:active {
+      display: none !important;
+    }
+
     .goog-te-banner-frame,
-    iframe.goog-te-banner-frame,
-    .VIpgJd-ZVi9od-ORHb-OEVmcd {
+    .goog-te-banner-frame.skiptranslate,
+    iframe.goog-te-banner-frame {
       display: none !important;
     }
 
-    body {
+    body,
+    html.translated-ltr body,
+    html.translated-rtl body {
       top: 0 !important;
     }
   </style>
@@ -79,20 +94,27 @@
 <body>
   <main>
     <h1>Google Translate Widget Demo</h1>
-    <p>Allowed languages: English, Polish, Spanish, Ukrainian, Arabic.</p>
-    <p class="sample">This sample paragraph can be used to test each translation widget.</p>
 
-    <section>
+    <p>
+      Allowed languages: English, Polish, Spanish, Ukrainian, Arabic.
+    </p>
+
+    <div class="sample-text">
+      <strong>Sample text:</strong>
+      This sample paragraph can be used to test each translation widget.
+    </div>
+
+    <section class="widget-section">
       <h2>Vertical/default widget</h2>
       <div id="google_translate_vertical"></div>
     </section>
 
-    <section>
+    <section class="widget-section">
       <h2>Horizontal widget</h2>
       <div id="google_translate_horizontal"></div>
     </section>
 
-    <section>
+    <section class="widget-section">
       <h2>Simple widget</h2>
       <div id="google_translate_simple"></div>
     </section>
@@ -105,7 +127,7 @@
       new google.translate.TranslateElement(
         {
           pageLanguage: 'en',
-          includedLanguages
+          includedLanguages: includedLanguages
         },
         'google_translate_vertical'
       );
@@ -113,7 +135,7 @@
       new google.translate.TranslateElement(
         {
           pageLanguage: 'en',
-          includedLanguages,
+          includedLanguages: includedLanguages,
           layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
         },
         'google_translate_horizontal'
@@ -122,13 +144,14 @@
       new google.translate.TranslateElement(
         {
           pageLanguage: 'en',
-          includedLanguages,
+          includedLanguages: includedLanguages,
           layout: google.translate.TranslateElement.InlineLayout.SIMPLE
         },
         'google_translate_simple'
       );
     }
   </script>
+
   <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
