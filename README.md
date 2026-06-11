@@ -1,17 +1,10 @@
-# Google Translate Widget Layout Demo
+# Google Translate Widget Demo
 
-This repository is a static GitHub Pages demo for three Google Translate website widget layouts. The main `index.html` page presents each widget in an iframe, while each widget initializes in a separate standalone HTML document to prevent the Google Translate script instances from conflicting.
-
-## Pages
-
-- `index.html` — main demo page containing all three widget iframes
-- `vertical.html` — vertical/default widget
-- `horizontal.html` — horizontal inline widget
-- `simple.html` — simple inline widget
+This repository is a static GitHub Pages demo containing one default Google Translate website widget. The widget is embedded directly in `index.html`; it does not use iframes or alternate layouts.
 
 ## Languages
 
-Every widget uses English as its source page language and limits the selector to:
+The page uses English as its source language and limits the visible selector to:
 
 - English (`en`)
 - Polish (`pl`)
@@ -19,7 +12,7 @@ Every widget uses English as its source page language and limits the selector to
 - Ukrainian (`uk`)
 - Arabic (`ar`)
 
-The shared widget configuration is:
+The widget configuration is:
 
 ```javascript
 pageLanguage: 'en',
@@ -36,7 +29,7 @@ python3 -m http.server 8000
 
 Then open `http://localhost:8000/`.
 
-Internet access is required for the selectors because the Google Translate element script is loaded from `translate.google.com`.
+Internet access is required for the selector because the Google Translate element script is loaded from `translate.google.com`.
 
 ## Publish with GitHub Pages
 
